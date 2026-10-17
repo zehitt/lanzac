@@ -74,7 +74,7 @@ Abrí el pull request desde GitHub. Usá otro nombre de rama para cada tarea y a
 Subir el código permite colaborar; activar Pages permite abrir la web mediante una URL.
 
 1. En **Settings → Pages**, elegí **Deploy from a branch**.
-2. Seleccioná la rama `main` y la carpeta `/(root)`.
+2. Seleccioná la rama `trabajo-personal` y la carpeta `/(root)`.
 3. Guardá y esperá a que GitHub complete la publicación. La URL aparecerá en esa misma sección.
 
 Los siguientes cambios integrados en `main` actualizarán la web. No hace falta un workflow propio ni un proceso de compilación. Con GitHub Free, Pages está disponible para repositorios públicos; los privados requieren un plan compatible. Activar Pages normalmente hace pública la web aunque el código sea privado. [Configuración y disponibilidad de GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
@@ -83,6 +83,6 @@ Los siguientes cambios integrados en `main` actualizarán la web. No hace falta 
 
 Se conserva el diseño de `lanza-castelli-preview-premium.html`, separado en archivos editables. Para futuros cambios, trabajen sobre `index.html` y `assets/`: las copias HTML originales no se sincronizan automáticamente con este proyecto.
 
-El formulario sigue siendo ilustrativo y no envía ni guarda consultas. El mapa es ilustrativo y las redes conservan sus enlaces desactivados. La página mantiene su identificación como vista previa y la indicación `noindex,nofollow`. No hay backend, analítica ni servicios externos conectados.
+El formulario sigue siendo ilustrativo y no envía ni guarda consultas. Las reseñas quedan preparadas pero ocultas temporalmente y todas las imágenes visuales usan archivos locales de `assets/img/nuevasimagenes/`. El mapa abre el enlace compartido de Google Maps. La página mantiene su identificación como vista previa y la indicación `noindex,nofollow`; no hay backend ni analítica.
 
 Se comprobaron la estructura del HTML, las rutas locales, la integridad de las imágenes y la sintaxis del JavaScript. La revisión visual en navegador sigue pendiente por una restricción del entorno de preparación. Antes de integrar cambios de diseño, revisen el menú, la galería y las secciones en escritorio y móvil, especialmente en los anchos 1920, 1440, 1366, 1024, 768, 430, 390, 375 y 360 píxeles.

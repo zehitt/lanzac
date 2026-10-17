@@ -7,6 +7,24 @@
   const menuLabel = menu.querySelector(".menu-label");
   const desktop = window.matchMedia("(min-width: 701px)");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const typingCopy = document.querySelector(".hero-copy[data-typing-text]");
+  if (typingCopy) {
+    const fullText = typingCopy.dataset.typingText;
+    if (reducedMotion.matches) {
+      typingCopy.textContent = fullText;
+    } else {
+      typingCopy.textContent = "";
+      let character = 0;
+      const typeNextCharacter = () => {
+        typingCopy.textContent = fullText.slice(0, character);
+        if (character < fullText.length) {
+          character += 1;
+          window.setTimeout(typeNextCharacter, 32);
+        }
+      };
+      window.setTimeout(typeNextCharacter, 100);
+    }
+  }
   const closeMenu = (restoreFocus = false) => {
     if (!menu.open) return;
     menu.open = false;
@@ -52,7 +70,7 @@
     "Oficina y biblioteca",
     "Diplomas",
     "Retrato familiar",
-    "Identificación de la escribanía",
+    "Detalle de la oficina",
   ];
   let currentSlide = 0;
   const showSlide = (requested) => {
@@ -123,9 +141,61 @@
     { passive: true },
   );
 
-  const anchors = ["inicio", "trayectoria", "servicios", "contacto"].map((id) =>
-    document.getElementById(id),
-  );
+  const reviewViewport = document.querySelector("[data-review-viewport]");
+  const reviewTrack = document.querySelector("[data-review-track]");
+  if (reviewViewport && reviewTrack) {
+    const originalReviews = Array.from(reviewTrack.children);
+    originalReviews.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      clone.querySelectorAll("a, button, input, textarea, select").forEach((element) => {
+        element.setAttribute("tabindex", "-1");
+      });
+      reviewTrack.appendChild(clone);
+    });
+
+    let reviewOffset = 0;
+    let reviewSetWidth = 0;
+    let reviewPaused = false;
+    let reviewLastTime = 0;
+    const reviewSpeed = 34;
+    const measureReviews = () => {
+      reviewSetWidth = reviewTrack.scrollWidth / 2;
+      if (reviewSetWidth > 0 && Math.abs(reviewOffset) >= reviewSetWidth) {
+        reviewOffset = 0;
+      }
+    };
+    const animateReviews = (time) => {
+      if (!reviewLastTime) reviewLastTime = time;
+      const delta = Math.min(50, time - reviewLastTime);
+      reviewLastTime = time;
+      if (!reviewPaused && !reducedMotion.matches && reviewSetWidth > 0) {
+        reviewOffset -= reviewSpeed * (delta / 1000);
+        if (reviewOffset <= -reviewSetWidth) reviewOffset += reviewSetWidth;
+        reviewTrack.style.transform = `translate3d(${reviewOffset}px, 0, 0)`;
+      }
+      window.requestAnimationFrame(animateReviews);
+    };
+    reviewViewport.addEventListener("mouseenter", () => {
+      reviewPaused = true;
+    });
+    reviewViewport.addEventListener("mouseleave", () => {
+      reviewPaused = false;
+    });
+    reviewViewport.addEventListener("focusin", () => {
+      reviewPaused = true;
+    });
+    reviewViewport.addEventListener("focusout", (event) => {
+      if (!reviewViewport.contains(event.relatedTarget)) reviewPaused = false;
+    });
+    window.addEventListener("resize", measureReviews, { passive: true });
+    measureReviews();
+    window.requestAnimationFrame(animateReviews);
+  }
+
+  const anchors = ["inicio", "trayectoria", "servicios", "reseñas", "contacto"]
+    .map((id) => document.getElementById(id))
+    .filter((section) => section && getComputedStyle(section).display !== "none");
   const navLinks = document.querySelectorAll(".nav a, .mobile-panel nav a");
   let scrollQueued = false;
   const updateNavigation = () => {

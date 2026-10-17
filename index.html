@@ -12,9 +12,10 @@
     <meta name="referrer" content="no-referrer" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; img-src 'self' file: data:; style-src 'self' file:; script-src 'self' file:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+      content="default-src 'none'; img-src 'self' file: data:; style-src 'self' file: https://fonts.googleapis.com; font-src 'self' file: https://fonts.gstatic.com; script-src 'self' file:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
     />
     <title>Lanza Castelli · Escribanía · Vista previa</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body>
@@ -23,7 +24,7 @@
       <div class="wrap header-inner">
         <a class="brand" href="#inicio" aria-label="Lanza Castelli, inicio"
           ><img
-            src="./assets/img/logo-lanza-castelli.png"
+            src="./assets/img/logo.png"
             alt="Lanza Castelli, Escribanía, Registro N.º 9"
             width="642"
             height="224"
@@ -100,14 +101,14 @@
           <div
             class="photo photo-5"
             role="img"
-            aria-label="Identificación de la escribanía"
+            aria-label="Detalle de la oficina"
             aria-hidden="true"
           ></div>
         </div>
         <div class="wrap hero-inner">
           <p class="eyebrow">Córdoba, Argentina · Registro N.º 9</p>
           <h1>Experiencia jurídica<br />y notarial.</h1>
-          <p class="hero-copy">Al servicio de cada consulta.</p>
+          <p class="hero-copy" data-typing-text="Al servicio de cada consulta.">Al servicio de cada consulta.</p>
           <div class="hero-actions"
             ><a class="button" href="#contacto"
               >Consultas<svg aria-hidden="true" viewBox="0 0 24 24">
@@ -237,6 +238,7 @@
         </div>
       </section>
       <section class="history" aria-labelledby="historia-titulo">
+        <img class="page-logo-watermark" src="./assets/img/logo.png" alt="" aria-hidden="true" width="2115" height="744" loading="lazy" decoding="async" />
         <div class="wrap history-grid">
           <div class="history-copy reveal"
             ><p class="eyebrow">Trayectoria</p
@@ -265,7 +267,7 @@
             ><div class="history-frame"
               ><img
                 class="history-photo"
-                src="./assets/img/maqueta-barco.jpg"
+                src="./assets/img/nuevasimagenes/1.png"
                 alt="Maqueta de un barco exhibida en la escribanía"
                 width="2048"
                 height="1820"
@@ -281,10 +283,7 @@
       <section class="heritage" aria-labelledby="tradicion-titulo"
         ><div class="wrap reveal"
           ><h2 id="tradicion-titulo"
-            >Una tradición jurídica que atraviesa generaciones.</h2
-          ><a class="button" href="#contacto"
-            >Contacto<svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M5 12h14m-6-6 6 6-6 6" /></svg></a></div
+            >Una tradición jurídica que atraviesa generaciones.</h2></div
       ></section>
       <div
         class="services"
@@ -301,7 +300,7 @@
             <figure class="service-visual reveal"
               ><img
                 class="service-image"
-                src="./assets/img/papeleria.jpg"
+                src="./assets/img/nuevasimagenes/3.png"
                 alt="Papelería original de la escribanía"
                 width="600"
                 height="430"
@@ -309,7 +308,6 @@
                 decoding="async"
             /></figure>
             <div class="service-copy reveal"
-              ><p class="service-index" aria-hidden="true">01</p
               ><h3 id="escrituras-titulo">Escrituras</h3
               ><ul
                 ><li>Operaciones y contratos</li
@@ -327,7 +325,6 @@
         <section class="service" aria-labelledby="instrumentos-titulo"
           ><div class="wrap service-grid">
             <div class="service-copy reveal"
-              ><p class="service-index" aria-hidden="true">02</p
               ><h3 id="instrumentos-titulo">Instrumentos privados</h3
               ><ul
                 ><li>Compraventas y cesiones</li
@@ -358,7 +355,6 @@
               ></div
             ></figure>
             <div class="service-copy reveal"
-              ><p class="service-index" aria-hidden="true">03</p
               ><h3 id="certificaciones-titulo">Certificaciones</h3
               ><ul
                 ><li>Firmas y documentación</li
@@ -374,6 +370,61 @@
             ></div> </div
         ></section>
       </div>
+      <section class="reviews" id="reseñas" aria-labelledby="reseñas-titulo">
+        <div class="wrap">
+          <div class="reviews-heading reveal">
+            <p class="eyebrow">La experiencia de nuestros clientes</p>
+            <h2 id="reseñas-titulo">Reseñas que hablan de confianza.</h2>
+            <p>Una atención clara, cercana y profesional en cada consulta.</p>
+          </div>
+          <div
+            class="review-viewport"
+            data-review-viewport
+            tabindex="0"
+            role="region"
+            aria-label="Reseñas de clientes, carrusel automático"
+          >
+            <div class="review-track" data-review-track>
+              <article class="review-card">
+                <div class="review-card-top">
+                  <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                  <span class="review-tag">Escrituras</span>
+                </div>
+                <h3>Atención clara y cercana</h3>
+                <p>“Nos acompañaron en cada paso y explicaron el proceso con mucha claridad.”</p>
+                <div class="review-person">
+                  <img src="./assets/img/nuevasimagenes/3.png" alt="" width="40" height="40" loading="lazy" />
+                  <span><b>María G.</b><small>Cliente particular</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-card-top">
+                  <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                  <span class="review-tag">Asesoramiento</span>
+                </div>
+                <h3>Un equipo de confianza</h3>
+                <p>“La gestión fue ordenada, profesional y siempre tuvimos una respuesta a tiempo.”</p>
+                <div class="review-person">
+                  <img src="./assets/img/nuevasimagenes/5.png" alt="" width="40" height="40" loading="lazy" />
+                  <span><b>Julián R.</b><small>Cliente particular</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-card-top">
+                  <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                  <span class="review-tag">Trámites</span>
+                </div>
+                <h3>Profesionalismo desde el inicio</h3>
+                <p>“Nos brindaron seguridad y una atención muy humana para una decisión importante.”</p>
+                <div class="review-person">
+                  <img src="./assets/img/nuevasimagenes/7.png" alt="" width="40" height="40" loading="lazy" />
+                  <span><b>Carolina M.</b><small>Cliente particular</small></span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="contact" id="contacto" aria-labelledby="contacto-titulo"
         ><div class="wrap">
           <div class="contact-heading reveal"
@@ -443,10 +494,16 @@
               ></div
             >
             <div class="map-wrap reveal"
-              ><div
+                ><a
+                  class="map-link"
+                  href="https://share.google/DU8L1CMVQ7vg5fiaP"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir la ubicación de Lanza Castelli en Google Maps"
+                ><div
                 class="map-mock"
                 role="img"
-                aria-label="Marcador ilustrativo de la dirección; no es un mapa geográfico"
+                aria-label="Abrir en Google Maps: 25 de Mayo 267, piso 5, Córdoba"
                 ><div class="map-grid" aria-hidden="true"></div
                 ><div class="map-marker"
                   ><span class="map-pin" aria-hidden="true"></span
@@ -455,7 +512,7 @@
                   ></div
                 ><span class="map-note"
                   >Mapa ilustrativo · Sin conexión a Google</span
-                ></div
+                ></div></a
               ><p class="map-address"
                 ><svg aria-hidden="true" viewBox="0 0 24 24">
                   <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" />
@@ -472,6 +529,7 @@
         ><p
           >Reconstrucción de consulta · No es el sitio oficial<br />ni una
           restauración del servidor.</p
+        ><img class="footer-logo" src="./assets/img/logo.png" alt="" aria-hidden="true" width="2115" height="744" loading="lazy" decoding="async" />
         ><a class="footer-top" href="#inicio"
           >Volver al inicio<svg aria-hidden="true" viewBox="0 0 24 24">
             <path d="M12 19V5m-6 6 6-6 6 6" /></svg></a></div
